@@ -14,7 +14,7 @@ export class AddformWorkerComponent implements OnInit {
   myWorkerType = MyWorkerType;
 
   @Output() addWorker = new EventEmitter<MyWorker>();
-
+  @Output() confirmWorker = new EventEmitter<MyWorker>();
   constructor() { }
 
   ngOnInit(): void {
@@ -28,5 +28,4 @@ export class AddformWorkerComponent implements OnInit {
     };
     this.addWorker.emit(worker);
   }
-
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MyWorker, MyWorkersDatabase, MyWorkerType } from './shared/worker.model';
-import { isNullOrUndefined } from 'util';
 import { HttpWorkerService } from './shared/services/http-worker.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +12,20 @@ export class AppComponent implements OnInit{
   title = 'Список сотрудников';
   workers: MyWorker[] = MyWorkersDatabase;
   myWorkerType = MyWorkerType;
+  filterGroup:FormGroup;
+  id:number;
+  name:string;
+  surname:string;
+  phone:string;
 
   constructor(private httpWorkerService: HttpWorkerService){}
   ngOnInit(){
+    this.filterGroup = new FormGroup({
+      id: new FormControl(null,[Validators.required]),
+      name: new FormControl(null,[Validators.required]),
+      surname: new FormControl(null,[Validators.required]),
+      phone: new FormControl(null,[Validators.required])
+    });
     this.getData();
   }
   async getData(){

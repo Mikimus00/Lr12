@@ -6,14 +6,14 @@ import {HttpClientModule} from '@angular/common/http'
  
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
-
 import { AppComponent } from './app.component';
 import { TableWorkersComponent } from './ui/table-workers/table-workers.component';
 import { AddformWorkerComponent } from './ui/addform-worker/addform-worker.component';
+import { FilterPipe } from './shared/pipes/filter.pipe';
 
 
 @NgModule({
-  declarations: [ AppComponent, TableWorkersComponent, AddformWorkerComponent],
+  declarations: [ AppComponent, TableWorkersComponent, AddformWorkerComponent, FilterPipe],
   imports: [
     BrowserModule,
     FormsModule,

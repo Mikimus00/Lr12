@@ -4,26 +4,36 @@
       <h1>{{title}}</h1>
     </div>
   </div>
+  <h5 class="mt-4">Фильтрация</h5>
+    <div class="row mb-3 " [formGroup]="filterGroup">
+      <div class="col-3">
+        <input type="text" class="form-control" placeholder="Имя" formControlName="name">
+      </div>
+      <div class="col-3">
+        <input type="text" class="form-control" placeholder="Фамилия" formControlName="surname">
+      </div>
+    </div>
   <app-addform-worker (addWorker)="onAddWorker($event)"></app-addform-worker>
   <app-table-workers [title]="'Программисты'" 
-    [workers]="getByType(myWorkerType.programmer)"
+    [workers]="getByType(myWorkerType.programmer) |filter:filterGroup.value"
     (editWorker)="onEditWorker($event)"
     (deleteworker)="onDeleteWorker($event)">
   </app-table-workers>
   <app-table-workers [title]="'Дизайнеры'" 
-    [workers]="getByType(myWorkerType.designer)"
+    [workers]="getByType(myWorkerType.designer) |filter:filterGroup.value"
     (editWorker)="onEditWorker($event)"
     (deleteworker)="onDeleteWorker($event)">
   </app-table-workers>
   <app-table-workers [title]="'Рекламщики'" 
-    [workers]="getByType(myWorkerType.copywriter)"
+    [workers]="getByType(myWorkerType.copywriter) |filter:filterGroup.value"
     (editWorker)="onEditWorker($event)"
     (deleteworker)="onDeleteWorker($event)">
   </app-table-workers>
   <app-table-workers [title]="'Менеджеры'" 
-    [workers]="getByType(myWorkerType.manager)"
+    [workers]="getByType(myWorkerType.manager) |filter:filterGroup.value"
     (editWorker)="onEditWorker($event)"
     (deleteworker)="onDeleteWorker($event)">
   </app-table-workers>
+  <hr>
 </div>
 

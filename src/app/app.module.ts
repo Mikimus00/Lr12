@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
+import {HttpClientModule} from '@angular/common/http'
  
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -17,7 +18,8 @@ import { AddformWorkerComponent } from './ui/addform-worker/addform-worker.compo
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

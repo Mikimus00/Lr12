@@ -16,6 +16,7 @@ export class TableWorkersComponent implements OnInit {
   EditName : string;
   EditSurname : string;
   EditPhone: string;
+  EditType:Number;
   formChange: FormGroup;
   @Output() deleteworker = new EventEmitter<number>();
   @Output() editWorker = new EventEmitter();
@@ -44,10 +45,12 @@ export class TableWorkersComponent implements OnInit {
           this.EditName = this.workers[this.workers.findIndex((worker) => worker.id === id)].name ;
           this.EditSurname = this.workers[this.workers.findIndex((worker)=> worker.id === id)].surname;
           this.EditPhone = this.workers[this.workers.findIndex((worker)=> worker.id === id)].phone;
+          this.EditType = this.workers[this.workers.findIndex((worker) => worker.id === id)].type
           this.num += 1;
         }
        else if(this.num == 1){
         let push=this.formChange.value;
+        push.type=this.EditType;
         push.id = id;
         this.editWorker.emit(push);
         this.workerId = null;

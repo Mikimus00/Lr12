@@ -18,13 +18,10 @@ export class AppComponent {
     let index = this.workers.findIndex(worker => worker.id === id);
     if(index != -1)this.workers.splice(index, 1);
   }
-  onAddWorker(worker: MyWorker){
-    if(worker.name != null && worker.surname != null){
+  onAddWorker(worker: MyWorker){ 
     let id = this.workers.length > 0 ? this.workers[this.workers.length - 1].id + 1 :  0;
     worker.id = id;
     this.workers.push(worker);
-    }
-    else alert("Пустые поля имени и фамилии");
   }
   onEditWorker(worker){
     if (worker[1]!=undefined && worker[1]!="") this.workers[worker[0]-1].name=worker[1];

@@ -7,8 +7,9 @@
       <tr>
         <th scope="col" [style.width]="'100px'">id</th>
         <th scope="col" [style.width]="'40%'">Имя</th>
-        <th scope="col" [style.width]="'60%'">Фамилия</th>
-        <th scope="col" [style.width]="'150px'"></th>
+        <th scope="col" [style.width]="'30%'">Фамилия</th>
+        <th scope="col" [style.width]="'30%'">Телефон</th>
+        <th scope="col" [style.width]="'100px'"></th>
         <th scope="col" [style.width]="'150px'"></th>
       </tr>
     </thead>
@@ -31,6 +32,7 @@
         
         <td *ngIf="workerId != worker.id">{{ worker.name }}</td>
         <td *ngIf="workerId != worker.id">{{ worker.surname }}</td>
+        <td *ngIf="workerId != worker.id">{{ worker.phone }}</td>
         <td>
           <button
             class="btn btn-outline-danger btn-sm"

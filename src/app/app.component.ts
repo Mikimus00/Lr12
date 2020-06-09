@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MyWorker, MyWorkersDatabase, MyWorkerType } from './shared/worker.model';
+import { isNullOrUndefined } from 'util';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,9 @@ export class AppComponent {
     this.workers.push(worker);
   }
   onEditWorker(worker){
-    if (worker[1]!=undefined && worker[1]!="") this.workers[worker[0]-1].name=worker[1];
-    if (worker[2]!=undefined && worker[2]!="") this.workers[worker[0]-1].surname=worker[2];
+    console.log(worker);
+    if (worker.name != isNullOrUndefined) this.workers[worker.id-1].name=worker.name;
+    if (worker.surname != isNullOrUndefined) this.workers[worker.id-1].surname=worker.surname;
+    if (worker.phone != isNullOrUndefined) this.workers[worker.id-1].phone=worker.phone;
   }
 }

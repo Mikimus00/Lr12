@@ -17,7 +17,7 @@ import { AddformWorkerComponent } from './ui/addform-worker/addform-worker.compo
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxMaskModule.forRoot(),
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

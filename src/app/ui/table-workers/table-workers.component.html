@@ -16,19 +16,31 @@
     <tbody>
       <tr *ngFor="let worker of workers">
         <th scope="row">{{ worker.id }}</th>
+        <ng-container *ngIf="workerId == worker.id" [formGroup]="formChange">
         <td *ngIf="workerId == worker.id">
           
           <input type="text"
           class="form-control"
           placeholder="Name"
+          formControlName="name"
           [(ngModel)]="EditName"/>
         </td>
         <td *ngIf="workerId == worker.id">
           <input type="text"
           class="form-control"
           placeholder="Surname"
+          formControlName="surname"
           [(ngModel)]="EditSurname"/>
         </td>
+        <td *ngIf="workerId == worker.id">
+          <input type="text"
+          class="form-control"
+          placeholder="Phone"
+          formControlName="phone"
+          mask="+0 (000) 0000000"
+          [(ngModel)]="EditPhone"/>
+        </td>
+      </ng-container>
         
         <td *ngIf="workerId != worker.id">{{ worker.name }}</td>
         <td *ngIf="workerId != worker.id">{{ worker.surname }}</td>
